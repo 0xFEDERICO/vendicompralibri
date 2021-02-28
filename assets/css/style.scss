@@ -1,0 +1,251 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* general css */
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+header {
+  text-align: center;
+  position: relative;
+  padding-right: 0;
+  margin-bottom: 25px;
+}
+@media only screen and (max-width: 700px){
+  header {
+    margin-top: 15px; /* margin inserted for banner introdution */
+  }
+}
+
+i {
+  font-size: 25px;
+}
+
+/* search library */
+.posts, .content {
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.post {
+  padding: 5px;
+  width: 225px;
+  height: 225px;
+  margin: 10px;
+  margin-bottom: 150px;
+  text-align: center;
+}
+#inputsearch {
+	font-size: 16px;
+	border-radius: 5px;
+	padding-top: 12px;
+  padding-bottom: 12px;
+	border: 1px solid #ddd;
+  margin-bottom: 30px;
+  width: 100%;
+}
+#ul-results {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Instagram icon */
+#insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Telegram icon */
+#tg {
+  background-color: #2ca5e0;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mail icon */
+#mail {
+  background-color: #343a40;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Banner for guide */
+.banner-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #343a40;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+  -webkit-transition: .8s;
+  transition: .8s;
+  -webkit-animation: slideIn .8s;
+          animation: slideIn .8s;
+  -webkit-animation-delay: .8s;
+          animation-delay: .8s;
+}
+.banner-bar .message {
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .banner-bar .message {
+    display: none;
+  }
+}
+.banner-bar .mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .banner-bar .mobile {
+    display: inline-block;
+  }
+}
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes slideIn {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.close-cb {
+  border: none;
+  color: white;
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.close-cb:hover {
+  background: #cc0000;
+}
+.checkbox-cb {
+  display: none;
+}
+.checkbox-cb:checked + .banner-bar {
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+}
+
+/* Gallery post */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: center;
+}
+.item {
+  padding: 5px;
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+}
+img[id^='Img'] {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+img[id^='Img']:hover {opacity: 0.7;}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+div[id^='caption'] {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+.modal-content, div[id^='caption'] {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+  .cover {
+    width: 200px;
+    height: 200px;
+  }
+}

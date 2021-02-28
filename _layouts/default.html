@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ "/images/favicon.ico" | relative_url }}"/>
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link href="{{ "/assets/css/fontawesome.css" | relative_url }}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        {% if site.logo %}
+          <a href="{{ "/" | absolute_url }}">
+            <img src="{{site.logo | relative_url}}" alt="Logo" height="100" width="100"/>
+          </a>
+        {% endif %}
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+      </header>
+      <div class="content">
+      {{ content }}
+      </div>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/script.js" | relative_url }}"></script>
+  </body>
+</html>

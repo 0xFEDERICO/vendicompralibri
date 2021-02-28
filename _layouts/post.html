@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<h1>{{ page.title | escape }}</h1>
+<h2>Autore:</h2><p>{{ page.author | escape }}</p>
+<h2>Commento:</h2><p>{{content}}</p>
+<h2>Immagini:</h2>
+<div class="gallery">
+  {% assign psize = page.images | size %}
+  {% if psize == 0 %}
+    <p>nessuna immagine disponibile.</p>
+  {% else %}
+    {% for pic in page.images %}
+    {% assign imgIndex = forloop.index %}
+      <img class="item" id="Img{{imgIndex}}" onclick="zoomImage(this);" src="{{ site.baseurl }}{{ pic }}" alt="{{ page.title | escape }}">
+      <div id="Modal{{imgIndex}}" class="modal">
+        <span class="close" id="close{{imgIndex}}">&times;</span>
+        <img class="modal-content" id="img{{imgIndex}}">
+        <div id="caption{{imgIndex}}"></div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+<h2>Contatti:</h2>
+{% if page.instagram %}
+  <a href="https://www.instagram.com/{{page.instagram}}" style="display:inline-block;margin-left:20px;">
+    <i class="fa fa-instagram" id="insta" aria-hidden="true"></i>
+    {{page.instagram}}
+  </a>
+{% endif %}
+{% if page.mail %}
+  <a href="mailto:{{page.mail}}" style="display:inline-block;margin-left:20px;">
+    <i class="fa fa-envelope" id="mail" aria-hidden="true"></i>
+    E-mail
+  </a>
+{% endif %}
+{% if page.telegram %}
+  <a href="https://t.me/{{page.telegram}}" style="display:inline-block;margin-left:20px;">
+    <i class="fa fa-telegram" id="tg" aria-hidden="true"></i>
+    {{page.telegram}}
+  </a>
+{% endif %}
+<br><br>
+<small>{{ page.date | date: "%-d %B %Y" }}</small>

@@ -1,0 +1,17 @@
+title: Vendi Compra Libri
+description: >- # this means to ignore newlines until "baseurl:"
+  Ricerca velocemente il libro che ti serve per Titolo o per codice ISBN oppure per data di pubblicazione del post ed entra in contatto col venditore.
+logo: images/logo.png
+instagram_username: vendicompralibri
+
+# Build settings
+theme: jekyll-theme-minimal
+
+plugins:
+ - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md

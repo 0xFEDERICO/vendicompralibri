@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<input class="checkbox-cb" id="checkbox-cb" type="checkbox"/>
+<div class="banner-bar">
+  <span class="message">Vuoi sapere come aggiungere un libro per venderlo? Guarda <a href="guidaedomande.html">qui</a>.</span>
+  <span class="mobile">Leggi <a href="guidaedomande.html">qui</a> per aggiungere un libro.</span>
+  <label for="checkbox-cb" class="close-cb">X</label>
+</div>
+<input type="text" id="inputsearch" onkeyup="filterPosts()" placeholder=" Cerca...">
+<div class="posts">
+  <ul id="ul-results">
+    {% for post in site.posts %}
+    <li class="post">
+      <a href="{{ site.baseurl }}{{ post.url }}"><h3>{{ post.title | escape }}</h3></a>
+      <div class="isbn">
+        <strong>ISBN:</strong> {{ post.isbn }}
+      </div>
+      <br>
+      {% if post.images %}
+        <a href="{{ site.baseurl }}{{ post.url }}"><img src="{{ site.baseurl }}{{ post.images[0] }}" class="cover" height="150" width="150" alt="immagine di copertina"></a>
+      {% else %}
+        <a href="{{ site.baseurl }}{{ post.url }}"><img src="{{ site.baseurl }}/images/books/noimage.png" class="cover" height="150" width="150" alt="immagine di copertina"></a>
+      {% endif %}
+      <div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
